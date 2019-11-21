@@ -1,9 +1,12 @@
 import { fetchItems } from "./api.js";
 
 export const fetchItemsAction = ({ update }) => {
-  update(() => ({
-    state: "loading"
-  }));
+  setTimeout(
+    () => update(() => ({
+      state: "loading",
+       items: []
+    })),
+  1000);
 
   fetchItems().then(items =>
     update(() => ({
